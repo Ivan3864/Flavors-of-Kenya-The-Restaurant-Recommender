@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommended Hotels and Restaurants</title>
+</head>
+<body>
+    <h1>Recommended Hotels and Restaurants</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Town</th>
+            <th>Category</th>
+            <th>Features</th>
+            <th>Location</th>
+            <th>Average Price</th>
+        </tr>
+        {% for recommendation in recommendations.iterrows() %}
+        <tr>
+            <td>{{ recommendation.1['name'] }}</td>
+            <td>{{ recommendation.1['town'] }}</td>
+            <td>{{ recommendation.1['category'] }}</td>
+            <td>{{ recommendation.1['combined_features'] }}</td>
+            <td>{{ recommendation.1['locationString'] }}</td>
+            <td>{{ recommendation.1['average_price'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Back to Preferences</a>
+</body>
+</html>
