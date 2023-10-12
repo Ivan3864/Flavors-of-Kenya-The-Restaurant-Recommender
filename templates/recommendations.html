@@ -43,17 +43,21 @@
     <table>
         <tr>
             <th>Name</th>
-            <th>Town</th>
             <th>Category</th>
+            <th>Website</th>
+            <th>Rating</th>
+            <th>Phone</th>
             <th>Features</th>
             <th>Location</th>
-            <th>Average Price</th>
+            <th>Average Price (Kes) </th>
         </tr>
         {% for recommendation in recommendations.iterrows() %}
         <tr>
             <td>{{ recommendation.1['name'] }}</td>
-            <td>{{ recommendation.1['town'] }}</td>
             <td>{{ recommendation.1['category'] }}</td>
+            <td>{{ recommendation.1['website'] }}</td>
+            <td>{{ recommendation.1['rating'] }}</td>
+            <td>{{ recommendation.1['phone'] }}</td>
             <td>{{ recommendation.1['combined_features'] }}</td>
             <td>{{ recommendation.1['locationString'] }}</td>
             <td>{{ recommendation.1['average_price'] }}</td>

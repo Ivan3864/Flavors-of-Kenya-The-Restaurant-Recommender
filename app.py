@@ -24,7 +24,7 @@ knn_model = NearestNeighbors(n_neighbors=n_neighbors, metric='cosine')
 knn_model.fit(tfidf_matrix)
 
 # Function to get hotel recommendations
-def recommend_hotels_restaurants(input_features, n_recommendations=5):
+def recommend_hotels_restaurants(input_features, n_recommendations=10):
     # Transform input_features into a TF-IDF vector
     input_vector = tfidf_vectorizer.transform([input_features])
 
@@ -32,12 +32,12 @@ def recommend_hotels_restaurants(input_features, n_recommendations=5):
     _, indices = knn_model.kneighbors(input_vector, n_neighbors=n_recommendations)
 
     # Return the recommended hotels with relevant information
-    recommended_hotels = final_data.iloc[indices[0]][['name', 'town', 'category', 'combined_features', 'locationString', 'average_price']]
+    recommended_hotels = final_data.iloc[indices[0]][['name','category', 'website', 'rating', 'phone', 'combined_features', 'locationString', 'average_price']]
 
     return recommended_hotels
 
 # Function to get town-based recommendations
-def recommend_town_hotels(town, n_recommendations=10):
+def recommend_town_hotels(town, n_recommendations=30):
     town = town.lower()  # Convert to lowercase for consistency
 
     # Filter hotels in the specified town
