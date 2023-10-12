@@ -2,69 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Recommended Hotels and Restaurants</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Hotels and Restaurants in {{ town }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
         }
+
         h1 {
             background-color: #333;
             color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
             padding: 10px;
+            margin: 10px 0;
         }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-        }
-        th {
+
+        a.btn {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #333;
             color: #fff;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        a {
             text-decoration: none;
-            color: #333;
-            padding: 5px 10px;
-            background-color: #eee;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>Recommended Hotels and Restaurants</h1>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Website</th>
-            <th>Rating</th>
-            <th>Phone</th>
-            <th>Features</th>
-            <th>Location</th>
-            <th>Average Price (Kes) </th>
-        </tr>
-        {% for recommendation in recommendations.iterrows() %}
-        <tr>
-            <td>{{ recommendation.1['name'] }}</td>
-            <td>{{ recommendation.1['category'] }}</td>
-            <td>{{ recommendation.1['website'] }}</td>
-            <td>{{ recommendation.1['rating'] }}</td>
-            <td>{{ recommendation.1['phone'] }}</td>
-            <td>{{ recommendation.1['combined_features'] }}</td>
-            <td>{{ recommendation.1['locationString'] }}</td>
-            <td>{{ recommendation.1['average_price'] }}</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <a href="/">Back to Preferences</a>
+    <h1>Recommended Hotels/Restaurants </h1>
+    <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
+
+    <div class="container">
+        {% if recommendations is not none %}
+            <ul>
+                {% for index, hotel in recommendations.iterrows() %}
+                <li>
+                    <b>Name:</b> {{ hotel['name'] }}
+                    <br>
+                    <b>Category:</b> {{ hotel['category'] }}
+                    <br>
+                    <b>Town:</b> {{ hotel['locationString'] }}
+                    <br>
+                    <b>Rating:</b> {{ hotel['rating'] }}
+                    <br>
+                    <b>Features:</b> {{ hotel['combined_features'] }}
+                    <br>
+                    <b>Website:</b> {{ hotel['website'] }}
+                    <br>
+                    <b>Phone:</b> {{ hotel['phone'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Hotels/Restaurants Available</p>
+        {% endif %}
+    </div>
 </body>
 </html>
+
 
