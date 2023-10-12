@@ -3,26 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel and Restaurant Recommender</title>
+    <title>Blaze pizza</title>
+    <!-- custom stylesheet link -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <!-- Bootstrap link -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/css/bootstrap.css') }}">
+    <!-- google fonts link -->
+    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to the Hotel and Restaurant Recommender</h1>
-    <p>Enter your preferences to get personalized recommendations.</p>
-    
-    <form action="/recommendations" method="POST">
-        <label for="user_input">Enter your preferences:</label>
-        <input type="text" id="user_input" name="user_input">
-        <button type="submit">Get Recommendations</button>
-    </form>
-  
-    <form action="/town_recommendations" method="POST">
-        <select name="selected_town">
-            {% for town in towns %}
-            <option value="{{ town }}">{{ town }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Get Town Recommendations">
-    </form>
+	<img src="{{ url_for('static', filename='images/landingimg.jpeg') }}" width="1350" height="650">
+
+	<!-- landing text -->
+	<div class="container">
+		<div class="landing text">
+	       <h1 class="text1"> SafariDine & Stay Kenya </h1>
+	    </div>
+	</div>
+         <br> <br>
+
+    <!-- about us -->
+
+    <div class="container">
+	    	<h1 class="text2"> About</h1><br><br>
+	    	  <div class="row">
+	    	   	   <div class="col-md-6">
+	    	   	   	 <div class="aboutusimg">
+	    	         <img src="{{ url_for('static', filename='images/aboutus.jpeg') }}" height="350" width="500">
+	    	         </div>
+	    	        </div>
+	    	          <div class="col-md-6">
+	    	              <p>
+                            SafariDine & Stay: Kenya's Culinary and Lodging Navigator is an innovative platform that leverages data and advanced algorithms to provide personalized recommendations, enhancing the dining and lodging experience for both local and international travelers in Kenya
+                          </p>
+	    	          </div>
+	    	  </div>
+	</div>
+	    <br><br><br><br>
+
+	<!-- menu -->
+
+    <div class="container">
+    	<h2 class="text3">Top Travel Destinations in Kenya</h2>
+         <br><br>
+    	<div class="row">
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/nairobi.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p1">Nairobi</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/mombasa.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p2">Mombasa</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/masaimara.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p3">Masai Mara</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/diani.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p4">Diani</div>
+    			</div>
+    		</div>
+
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/nakuru.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p5">Nakuru</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/kisumu.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p6">Kisumu</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/mtkenya.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p7">Mt. Kenya</div>
+    			</div>
+    		</div>
+    		<div class="col-md-3">
+    			<div class="img">
+    				<img src="{{ url_for('static', filename='images/malindi.jpeg') }}" alt="" width="260px" height="250">
+    				<div class="p8">Malindi</div>
+    			</div>
+    		</div>
+    	</div>
+    </div><br><br><br>
+    <!-- Order form -->
+<div class="orders" id="order">
+    <h1 class="text-center" id="order-pizza">Find the best Hotels/Restaurants below</h1>
+    <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 order-overlay text-center">
+            <form action="/town_recommendations" method="POST" class="col-sm-6 offset-sm-3 text-center">
+                <label>Select a town:</label>
+                <select name="selected_town">
+                    {% for town in towns %}
+                    <option value="{{ town }}">{{ town }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" value="Get Recommendations" name="button" class="btn btn-success checkout" id="submit">
+                
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<br>
+<div class="orders" id="order">
+    <h1 class="text-center" id="order-pizza">Find Hotels/Restaurants with specific features below</h1>
+    <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 order-overlay text-center">
+            <form action="/recommendations" method="POST" class="col-sm-6 offset-sm-3 text-center">
+                <label for="user_input">Enter your personalized preferences:</label>
+                <input type="text" class="form-control" id="user_input" name="user_input"placeholder="Eg. hotel with a pool or restaurant serving italian">
+                <button class="btn btn-success checkout" type="submit" >Get Recommendations</button>
+            <br>
+            </form>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <h2 class="text2"> ....</h2><br><br>
+      <div class="row">
+              <div class="col-md-6">
+                   <div class="aboutusimg">
+             <img src="{{ url_for('static', filename='images/know.jpeg') }}" height="350" width="400">
+             </div>
+            </div>
+              <div class="col-md-6">
+                  <p>Within the vibrant tapestry of Kenya's culinary landscape, hotels and restaurants offer a tantalizing array of dishes that tell a story of the nation's diverse heritage, from the succulent grills of Nyama Choma to the enchanting Maasai-themed lodges, all set amidst the backdrop of Kenya's stunning landscapes; these establishments champion locally-sourced ingredients and host cultural extravaganzas that transform every dining experience into an unforgettable odyssey through the depths of Kenyan culture and cuisine.  </p>
+              </div>
+      </div>
+</div>
+<br>
+
+<br>
+<!-- Delivery -->
+<div class="Delivery" id="order">
+    <h1 class="text-center" id="order-pizza">Kindly give your feedback below</h1>
+    <div class="form-group row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 order-overlay text-center">
+            <form class="col-sm-6 offset-sm-3 text-center" id="delivery">
+                <label for="name">Name</label>
+                        <input class="form-control" type="text" name="" id="name" required="required">
+                        <label for="phonenumber">Review</label>
+                        <input class="form-control" type="text" placeholder="Enter your review here....." id="number"> <br>
+                        <button type="submit" name="button" id="submit" class="btn btn-success checkout">Send</button>
+                </form>
+            </div>
+         </div>
+   </div><br><br>>
+   <!--contact us-->
+   <h2> Reach out to us </h2>
+   <div class="icons">
+         <div class="row">
+            <div class="col-sm-2">
+                 <a href="https://twitter.com/login"><img src="social_icons/twitter.png"></a>
+            </div>
+            <div class="col-sm-2">
+                 <a href="https://dribble.com/"><img src="social_icons/dribble.png"></a>
+            </div>
+            <div class="col-sm-2">
+                 <a href="https://www.facebook.com/"><img src="social_icons/facebook.png"></a>
+           </div>
+            <div class="col-sm-2">
+                 <a href="https://aboutme.google.com/u/0/?referer=gplus"><img src="social_icons/g_plus.png"></a>
+            </div>
+            <div class="col-sm-2">
+                 <a href="https://www.skype.com/en/"><img src="social_icons/skype.png"></a>
+            </div>
+            <div class="col-sm-2">
+                 <a href="http://www.stumbleupon.com/"><img src="social_icons/stumble_upon.png"></a>
+            </div>
+         </div>
+    </div>
+      
+
+
+  <!-- custom script file -->
+  <script type="text/javascript"  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+  <!--jquery script -->
+  <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </body>
 </html>
 
