@@ -14,6 +14,15 @@
         <input type="text" id="user_input" name="user_input">
         <button type="submit">Get Recommendations</button>
     </form>
+  
+    <form action="/town_recommendations" method="POST">
+        <select name="selected_town">
+            {% for town in towns %}
+            <option value="{{ town }}">{{ town }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Town Recommendations">
+    </form>
 </body>
 </html>
 

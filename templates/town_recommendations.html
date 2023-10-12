@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Hotels and Restaurants in {{ town }}</title>
+</head>
+<body>
+    <h1>Recommended Hotels and Restaurants in {{ town }}</h1>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Home</a>
+
+    {% if recommendations is not none %}
+        <ul>
+            {% for index, hotel in recommendations.iterrows() %}
+            <li>
+                <b>Name:</b> {{ hotel['name'] }}, <b>Town:</b> {{ hotel['town'] }}
+                <br>
+                <b>Category:</b> {{ hotel['category'] }}, <b>Location:</b> {{ hotel['locationString'] }}
+                <br>
+                <b>Rating:</b> {{ hotel['combined_features'] }}, <b>Average Price:</b> {{ hotel['average_price'] }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Hotels/Restaurants Available</p>
+    {% endif %}
+</body>
+</html>

@@ -25,44 +25,79 @@ knn_model.fit(tfidf_matrix)
 
 # Function to get hotel recommendations
 def recommend_hotels_restaurants(input_features, n_recommendations=5):
-    print("Input features:", input_features)
-
     # Transform input_features into a TF-IDF vector
     input_vector = tfidf_vectorizer.transform([input_features])
-    
-    print("Input vector shape:", input_vector.shape)  # Add this line for debugging
 
     # Find the most similar hotels
     _, indices = knn_model.kneighbors(input_vector, n_neighbors=n_recommendations)
 
-    print("Indices:", indices)  # Add this line for debugging
-
     # Return the recommended hotels with relevant information
     recommended_hotels = final_data.iloc[indices[0]][['name', 'town', 'category', 'combined_features', 'locationString', 'average_price']]
-    print("Recommended hotels:", recommended_hotels)  # Add this line for debugging
 
     return recommended_hotels
 
+# Function to get town-based recommendations
+def recommend_town_hotels(town, n_recommendations=5):
+    town = town.lower()  # Convert to lowercase for consistency
+
+    # Filter hotels in the specified town
+    townbase = final_data[final_data['town'].str.lower() == town]
+
+    if not townbase.empty:
+        # Sort the hotels by rating (high to low) and average_price (low to high)
+        townbase = townbase.sort_values(by=['rating', 'average_price'], ascending=[False, True])
+
+        # Select specific columns to display in the recommendation
+        recommended_hotels = townbase[['name', 'town', 'category', 'combined_features', 'locationString', 'average_price']]
+
+        return recommended_hotels.head(n_recommendations)
+    else:
+        return None
+
+towns = [
+    'nairobi', 'kitengela', 'karen', 'syokimau', 'athi river', 'bomet',
+    'eldoret', 'watamu', 'malindi', 'kikambala',
+    'malindi marine national park', 'kakamega', 'nairobi region',
+    'kiambu', 'lavington', 'thika', 'narok', 'ruaka', 'nyeri',
+    'langata', 'kilifi', 'ngong', 'kiserian', 'ongata rongai',
+    'kahawa', 'mombasa', 'shanzu', 'bamburi', 'mtwapa', 'likoni',
+    'kitale', 'kwale', 'tiwi', 'lake elementaita', 'nakuru',
+    'lake nakuru national park', 'lamu island', 'shela', 'matuu',
+    'masii', 'mtito andei', 'nanyuki town', 'nyahururu', 'kikuyu',
+    'limuru', 'siaya', 'juja', 'diani beach', 'ukunda', 'naivasha',
+    'maasai mara national reserve', 'sekenani', 'kisumu', 'mambrui',
+    'nanyuki municipality', 'embu', 'meru town', 'kisii', 'machakos',
+    'naboisho conservancy', 'ololaimutiek', 'kajiado', 'migori',
+    'tsavo national park west', 'ruiru', 'bungoma', 'isiolo',
+    'kericho', 'tsavo', 'gilgil', 'galu beach', 'voi',
+    'tsavo national park east', 'busia', 'kitui',
+    'mara north conservancy', 'olderkesi private reserve', 'shella',
+    'narasha', 'kuwinda', 'kwoyo', 'maai mahiu', 'talek', 'homa bay',
+    'mount kenya national park', 'mbita', 'samburu national reserve',
+    'mwingi', 'mlolongo', 'lodwar', 'sagana', 'bondo',
+    'amboseli national park', 'naro moru'
+]
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
+    return render_template('index.html', towns=towns)
 
 @app.route('/recommendations', methods=['POST'])
 def recommendations():
     user_input = request.form['user_input']
     recommended_hotels = recommend_hotels_restaurants(user_input, n_recommendations=5)
-    print("Recommendations:", recommended_hotels)  # Add this line for debugging
     return render_template('recommendations.html', recommendations=recommended_hotels)
+
+@app.route('/town_recommendations', methods=['POST'])
+def town_recommendations():
+    selected_town = request.form['selected_town']
+    town_recommendations = recommend_town_hotels(selected_town, n_recommendations=10)
+    return render_template('town_recommendations.html', town=selected_town, recommendations=town_recommendations)
 
 
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
 
 
 
