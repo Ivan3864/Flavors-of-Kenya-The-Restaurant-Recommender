@@ -4,25 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recommended Hotels and Restaurants in {{ town }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        a.btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Recommended Hotels and Restaurants in {{ town }}</h1>
-    <a href="{{ url_for('index') }}" class="btn btn-primary">Back to Home</a>
+    <a href="{{ url_for('index') }}" class="btn">Back to Home</a>
 
-    {% if recommendations is not none %}
-        <ul>
-            {% for index, hotel in recommendations.iterrows() %}
-            <li>
-                <b>Name:</b> {{ hotel['name'] }}, <b>Town:</b> {{ hotel['town'] }}
-                <br>
-                <b>Category:</b> {{ hotel['category'] }}, <b>Location:</b> {{ hotel['locationString'] }}
-                <br>
-                <b>Rating:</b> {{ hotel['combined_features'] }}, <b>Average Price:</b> {{ hotel['average_price'] }}
-            </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No Hotels/Restaurants Available</p>
-    {% endif %}
+    <div class="container">
+        {% if recommendations is not none %}
+            <ul>
+                {% for index, hotel in recommendations.iterrows() %}
+                <li>
+                    <b>Name:</b> {{ hotel['name'] }}, <b>Town:</b> {{ hotel['town'] }}
+                    <br>
+                    <b>Category:</b> {{ hotel['category'] }}, <b>Location:</b> {{ hotel['locationString'] }}
+                    <br>
+                    <b>Rating:</b> {{ hotel['combined_features'] }}, <b>Average Price:</b> {{ hotel['average_price'] }}
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No Hotels/Restaurants Available</p>
+        {% endif %}
+    </div>
 </body>
 </html>
+
