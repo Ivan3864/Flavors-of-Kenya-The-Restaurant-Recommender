@@ -58,11 +58,19 @@
             <ul>
                 {% for index, hotel in recommendations.iterrows() %}
                 <li>
-                    <b>Name:</b> {{ hotel['name'] }}, <b>Town:</b> {{ hotel['town'] }}
+                    <b>Name:</b> {{ hotel['name'] }}
                     <br>
-                    <b>Category:</b> {{ hotel['category'] }}, <b>Location:</b> {{ hotel['locationString'] }}
+                    <b>Category:</b> {{ hotel['category'] }}
                     <br>
-                    <b>Rating:</b> {{ hotel['combined_features'] }}, <b>Average Price:</b> {{ hotel['average_price'] }}
+                    <b>Town:</b> {{ hotel['town'] }}
+                    <br>
+                    <b>Rating:</b> {{ hotel['rating'] }}
+                    <br>
+                    <b>Features:</b> {{ hotel['combined_features'] }}
+                    <br>
+                    <b>Website:</b> {{ hotel['website'] }}
+                    <br>
+                    <b>Phone:</b> {{ hotel['phone'] }}
                 </li>
                 {% endfor %}
             </ul>
@@ -72,4 +80,5 @@
     </div>
 </body>
 </html>
+
 

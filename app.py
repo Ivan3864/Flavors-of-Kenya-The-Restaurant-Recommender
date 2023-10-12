@@ -37,7 +37,7 @@ def recommend_hotels_restaurants(input_features, n_recommendations=5):
     return recommended_hotels
 
 # Function to get town-based recommendations
-def recommend_town_hotels(town, n_recommendations=5):
+def recommend_town_hotels(town, n_recommendations=10):
     town = town.lower()  # Convert to lowercase for consistency
 
     # Filter hotels in the specified town
@@ -47,12 +47,13 @@ def recommend_town_hotels(town, n_recommendations=5):
         # Sort the hotels by rating (high to low) and average_price (low to high)
         townbase = townbase.sort_values(by=['rating', 'average_price'], ascending=[False, True])
 
-        # Select specific columns to display in the recommendation
-        recommended_hotels = townbase[['name', 'town', 'category', 'combined_features', 'locationString', 'average_price']]
+        # Select specific columns to display in the recommendation, including the new columns (Name, Category, Rating, Features, Website, Phone)
+        recommended_hotels = townbase[['name', 'category', 'town', 'rating', 'combined_features', 'locationString', 'average_price', 'website', 'phone']]
 
         return recommended_hotels.head(n_recommendations)
     else:
         return None
+
 
 towns = [
     'nairobi', 'kitengela', 'karen', 'syokimau', 'athi river', 'bomet',
