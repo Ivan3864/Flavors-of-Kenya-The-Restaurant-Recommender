@@ -1,5 +1,5 @@
 body {
-	background-image: url('img/background.jpeg');
+	background-image: url('img/img4.jpg');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -21,22 +21,24 @@ h1 {
     transform: translate(-50%, -50%);
     height: inherit;
     padding: 30px;
-    background-color: rgba(14, 10, 10, 0.43);
+    background-color: rgba(75, 75, 75, 0.73);
     border-radius: 20px;
 }
 /*about us*/
 .text2 {
 	text-align: center;
-	color: #000000;
+	color: #f9f9f9;
 	font-family: 'Piedra', cursive;
 }
 p {
 	text-align: center;
 	float: left;
 	font-family: 'Piedra', cursive;
-	color: #fffdfd;
-	font-size: 29px;
+	color: #ffffff;
+	font-size: 25px;
 	padding:7px;
+	background-color: rgba(75, 75, 75, 0.73);
+    border-radius: 20px;
 }
 .aboutusimg:hover {
 	transform: scale(1.1);
@@ -44,7 +46,7 @@ p {
 /*menu*/
 .text3 {
 	text-align: center;
-	color: #000000;
+	color: #ffffff;
 	font-family: 'Piedra', cursive;
 }
 .img {
