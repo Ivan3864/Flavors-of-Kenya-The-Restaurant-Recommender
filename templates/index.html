@@ -109,7 +109,7 @@
                 <label>Select a town:</label>
                 <select name="selected_town">
                     {% for town in towns %}
-                    <option value="{{ town }}">{{ town }}</option>
+                    <option value="{{ town }}">{{ town.title() }}</option>
                     {% endfor %}
                 </select>
                 <input type="submit" value="Get Recommendations" name="button" class="btn btn-success checkout" id="submit">
