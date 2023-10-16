@@ -73,7 +73,7 @@
                     <b>Town:</b> {{ hotel['locationString'] }}<br>
                     <b>Rating:</b> {{ hotel['rating'] }}<br>
                     <b>Features:</b> {{ hotel['combined_features'] }}<br>
-                    <b>Website:</b> {{ hotel['website'] }}<br>
+                    <b>Website:</b> <a href="{{ hotel['website'] }}" target="_blank">{{ hotel['website'] }}</a><br>
                     <b>Phone:</b> {{ hotel['phone'] }}
                 </li>
                 {% endfor %}
