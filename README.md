@@ -1,4 +1,6 @@
 # SafariDine & Stay: Kenya's Culinary and Lodging Navigator
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)  ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black)  ![python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+
 ![image](https://github.com/Ivan3864/SAFARIDINE-STAY-KENYA-THE-CULINARY-AND-LODGING-NAVIGATOR/assets/133018549/8877b82c-8198-4b29-b7d7-d2965c2e595f)
 ## Introduction
 
