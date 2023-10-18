@@ -7,7 +7,7 @@
 
 ### Problem Statement
 
-Tourists in Kenya often struggle to find restaurants and hotels that match their preferences, budget, and desired locations. This leads to subpar dining experiences and uncomfortable stays, hindering overall trip satisfaction.
+Tourists in Kenya face the challenge of finding restaurants and hotels that align with their dining and lodging preferences, budget limitations, and desired locations. This results in subpar dining experiences and uncomfortable stays, ultimately hindering overall trip satisfaction.
 
 ### Key Components
 
@@ -15,7 +15,9 @@ User Profile: Collects user data, including dining and lodging preferences, loca
 
 Restaurant and Hotel Databases: Store information on various establishments, including menus, cuisines, ratings, reviews, and pricing.
 
-Recommendation Engine: Uses machine learning to generate personalized recommendations. User Interface: Provides a user-friendly platform for interaction.
+Recommendation Engine: Uses machine learning to generate personalized recommendations. 
+
+User Interface: Provides a user-friendly website or mobile app platform for interaction.
 
 ### Business Benefits
 
@@ -33,10 +35,10 @@ Merging Restaurant and Hotel Data We've combined scraped data from TripAdvisor a
 
 ### Data Sources
 
-- TripAdvisor (Restaurant Data) 
+- TripAdvisor (Restaurant Data)
 - Booking.com (Hotel Data)
 
-Column Descriptions for the Combined Dataset
+**Column Descriptions for the Combined Dataset**
 
 **id:** Unique identifier for establishments.
 
@@ -68,11 +70,11 @@ Column Descriptions for the Combined Dataset
 
 ## Conclusions
 
-Primary Objective Achievement The primary objective of creating a hotel and restaurant recommender system was successfully achieved and deployed.
+`Primary Objective Achievement` - The primary objective of creating a hotel and restaurant recommender system was successfully achieved and deployed.
 
-Model Performance The model had a Mean RMSE of 0.75 and Mean MAE of 0.48, indicating good performance.
+`Model Performance` - The model had a Mean RMSE of 0.75 and Mean MAE of 0.48, indicating good performance.
 
-User Experience The system offers a highly satisfying user experience, with personalization, ease of use, and comprehensive information.
+`User Experience` - The system offers a highly satisfying user experience, with personalization, ease of use, and comprehensive information.
 
 Challenges and Limitations Data scarcity and the absence of user-based information presented challenges. The cold start problem was also a limitation.
 
