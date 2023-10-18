@@ -76,7 +76,7 @@ Merging Restaurant and Hotel Data We've combined scraped data from TripAdvisor a
 
 `User Experience` - The system offers a highly satisfying user experience, with personalization, ease of use, and comprehensive information.
 
-Challenges and Limitations Data scarcity and the absence of user-based information presented challenges. The cold start problem was also a limitation.
+`Challenges and Limitations` - Data scarcity and the absence of user-based information presented challenges.
 
 ## Recommendations
 
