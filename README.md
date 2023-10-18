@@ -1,5 +1,5 @@
 # SafariDine & Stay: Kenya's Culinary and Lodging Navigator
-https://media-cdn.tripadvisor.com/media/photo-o/08/21/c8/ea/the-drive-up.jpg
+![image](https://github.com/Ivan3864/SAFARIDINE-STAY-KENYA-THE-CULINARY-AND-LODGING-NAVIGATOR/assets/133018549/8877b82c-8198-4b29-b7d7-d2965c2e595f)
 ## Introduction
 
 In the diverse culinary and hospitality landscape of Kenya, exploring the vibrant tapestry of flavors and finding the perfect place to stay is a journey in itself. Local and international travelers often face challenges planning a satisfying trip within their budget and time constraints. Kenya offers a rich array of culinary experiences and lodging options, from aromatic coastal dishes to cozy highland retreats. To ensure that every visitor's palate is delighted, and their stay is comfortable, we introduce "SafariDine & Stay: Kenya's Culinary and Lodging Navigator" – a tailored guide designed to match both local and international tourists' preferences with the finest dining experiences and accommodations in various towns in Kenya.
