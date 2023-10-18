@@ -32,39 +32,14 @@ Recommendation Engine: Uses machine learning to generate personalized recommenda
 
 - Data Insights
 
-- Target Audience
-
-- Travelers
-
-- Restaurant and Hotel Owners/Managers
-
-- Marketers
-
-- Challenges and Risks
-
-- Data Accuracy
-
-- Algorithm Bias
-
-- Competition
-
-- Data Privacy
-
-- Future Opportunities
-
-- Advanced AI and ML
-
-- Integration with AR
-
-- Expansion to International Markets
-
 ## Data Understanding
 
 Merging Restaurant and Hotel Data We've combined scraped data from TripAdvisor and Booking.com to provide a complete travel experience in Kenya.
 
 ### Data Sources
 
-TripAdvisor (Restaurant Data) -Booking.com (Hotel Data)
+- TripAdvisor (Restaurant Data) 
+- Booking.com (Hotel Data)
 
 Column Descriptions for the Combined Dataset
 
@@ -72,7 +47,7 @@ Column Descriptions for the Combined Dataset
 
 **category:** Indicates whether it is a restaurant or a hotel.
 
-**name:** Name of the establishment.
+**name:** Name of the establishment, restaurant or hotel.
 
 **latitude and longitude:** Geographic coordinates.
 
